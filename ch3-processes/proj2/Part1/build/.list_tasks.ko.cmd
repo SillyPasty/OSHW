@@ -1,0 +1,1 @@
+cmd_/root/courses/os/ch3-processes/proj2/Part1/list_tasks.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /root/courses/os/ch3-processes/proj2/Part1/list_tasks.ko /root/courses/os/ch3-processes/proj2/Part1/list_tasks.o /root/courses/os/ch3-processes/proj2/Part1/list_tasks.mod.o ;  true
