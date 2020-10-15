@@ -1,0 +1,1 @@
+cmd_/root/courses/os/ch2-kernel/part2/birthday_list.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /root/courses/os/ch2-kernel/part2/birthday_list.ko /root/courses/os/ch2-kernel/part2/birthday_list.o /root/courses/os/ch2-kernel/part2/birthday_list.mod.o ;  true
