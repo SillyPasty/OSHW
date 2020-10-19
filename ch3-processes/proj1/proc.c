@@ -48,8 +48,11 @@ int main(void)
 
         if (cnt == 1 && strcmp(args[0], "!!") == 0)
         {
-            if (count == 0)
+            if (count == 0) {
+                printf("No commands in history.\n");
                 continue;
+            }
+                
             strcpy(input, history[count-1]);
             process_input(input, args, &flag);
             strcpy(tmp, input);
@@ -58,8 +61,11 @@ int main(void)
         if (cnt == 1 && args[0][0] == '!') {
             int idx;
             sscanf(args[0], "!%d", &idx);
-            if (count - idx < 0)
+            if (count - idx < 0) {
+                printf("No such command in history.\n");
                 continue;
+            }
+                
             strcpy(input, history[count-idx]);
             process_input(input, args, &flag);
             strcpy(tmp, input);
