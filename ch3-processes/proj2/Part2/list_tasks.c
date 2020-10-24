@@ -21,9 +21,6 @@ int list_tasks_init(void)
 {
     printk(KERN_INFO "Loading Module \n");
     dfs(&init_task);
-    // for_each_process(task) {
-    //     printk(KERN_INFO "Name: %s, State: %ld, Pid: %d\n", task->comm, task->state, task->pid);
-    // }
     return 0;
 }
 /* This function is called when the module is removed. */
