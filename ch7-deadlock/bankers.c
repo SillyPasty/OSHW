@@ -40,9 +40,7 @@ int main(int argc, char **argv)
     for (int i = 0; i < NUMBER_OF_CUSTOMERS; i++)
     {
         arg[i].cid = i;
-        // printf("Start:%d", arg[1].cid);
         pthread_create(&(thread[i]), NULL, customer, &(arg[i]));
-        // sleep(1000);
     }
     for (int i = 0; i < NUMBER_OF_CUSTOMERS; i++)
     {
@@ -53,7 +51,6 @@ int main(int argc, char **argv)
 
 int get_rand(int lower, int upper)
 {
-    // printf("UPPER%d\n", upper);
     return rand() % upper + lower;
 }
 
@@ -107,7 +104,6 @@ void *customer(void *arg)
 
 void init()
 {
-
     // init maximum
     for (int i = 0; i < NUMBER_OF_CUSTOMERS; i++)
     {
@@ -151,7 +147,7 @@ int request_resources(int customer_num, int request[])
         need[customer_num][i] -= request[i];
     }
     // check the safe state
-    if (!is_safe())
+    if (is_safe())
     {
         // roll back if unsafe
         for (int i = 0; i < NUMBER_OF_RESOURCES; i++)
@@ -183,7 +179,7 @@ int release_resources(int customer_num, int release[])
 int is_safe()
 {
     int cnt = 0;
-    int finish[NUMBER_OF_CUSTOMERS];
+    int finish[NUMBER_OF_CUSTOMERS] = {0};
     int work[NUMBER_OF_RESOURCES];
     memcpy(work, avaliable, sizeof(int) * NUMBER_OF_RESOURCES);
     while (cnt < NUMBER_OF_CUSTOMERS)
@@ -196,7 +192,7 @@ int is_safe()
             for (int j = 0; j < NUMBER_OF_RESOURCES; j++)
             {
                 // check if its need is less than aviliable resources.
-                if (work[i] < need[i][j])
+                if (work[j] < need[i][j])
                 {
                     flag = 0;
                     break;
