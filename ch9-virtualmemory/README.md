@@ -1,0 +1,2 @@
+- Compile with `javac -d . Test.java LRU.java PageGenerator.java FIFO.java ReplacementAlgorithm.java`
+- Run with `java -classpath . virtualmem.Test 10 4`
